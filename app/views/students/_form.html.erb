@@ -4,7 +4,7 @@
   <div class="row center sign-up-form">
    <div class="col s12 m12 l12">
   <div class="card-panel">
-    <h3 class="header"><%= @student.new_record? ? "Sign upp" : "Edit Your Profile"%></h3>
+    <h3 class="header"><%= @student.new_record? ? "Sign up" : "Edit Your Profile"%></h3>
 
    <div class="row">
        <%= form_for(@student, hmtl: {class: "col s12"}) do |f| %>
@@ -19,13 +19,27 @@
      <div class="row">
      <div class="input-field col s12">
       <%= f.email_field :email, placeholder: "Enter your email address" %>
-      <%= f.label :email %>
+      <%= f.label :email,  class: "active" %>
+       </div>
+     </div>
+
+     <div class="row">
+     <div class="input-field col s12">
+      <%= f.password_field :password, placeholder: "Enter your password" %>
+      <%= f.label :password,  class: "active" %>
+       </div>
+     </div>
+
+     <div class="row">
+     <div class="input-field col s12">
+      <%= f.password_field :confirm_password , placeholder: "Enter your password again" %>
+      <%= f.label :confirm_password, class: "active" %>
        </div>
      </div>
 
       <div class="row">
      <div class="input-field col s12">
-        <%= f.submit(@student.new_record? ? "Sign up" : "Submit Updates", class: " btn blue waves-effect waves-light btn-large") %>
+        <%= f.button(@student.new_record? ? '<i class="material-icons right">arrow_forward</i>Sign up'.html_safe : '<i class="material-icons right">arrow_forward</i>Update'.html_safe, class: " btn blue waves-effect waves-light btn-large") %>
      </div>
       </div>
       <% end %>
